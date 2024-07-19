@@ -23,4 +23,4 @@ At Votify, we believe that every student's voice matters, and we are committed t
 
 
 # Dev Email
-![zeshaninsta](zeshaninsta@gmail.com)
+[Email] (zeshaninsta@gmail.com)
