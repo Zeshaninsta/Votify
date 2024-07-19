@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background: transparent;
+}
+#patient-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto; /* Center the container */
+  }
+
+
+  
+
+.scan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .scan .xray {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background-size: 500px;
+    background-color: aliceblue;
+    border: 2px solid white;
+  }
+  
+  .scan .xray::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 500px;
+    animation: animate 4s ease-in-out infinite;
+  }
+  
+  @keyframes animate {
+    0%,
+    100% {
+      height: 0%;
+    }
+    50% {
+      height: 100%;
+    }
+  }
+  /* 
+  .scan .hand::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #3fefef;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef);
+    animation: animatelines 4s ease-in-out infinite;
+  } */
+  
+  /* @keyframes animatelines {
+    0%,100% {
+        top: 0;
+    }
+    50% {
+        top: 100%;
+    }
+  } */
+  
+  img {
+    width: 100%;
+    object-fit: cover;
+    object-fit: contain;
+  }
+  
+  .progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    margin-top: 10px;
+    position: relative;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #4caf50;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    position: absolute;
+    animation: progressAnimation 2s ease-in-out; /* Set the animation duration and easing */
+  }
+  
+  @keyframes progressAnimation {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+
+
+
+  :root {
+    --radial-gradient-background: 250, 250, 250;
+    --solid-color-background: 15, 15, 15;
+    --overlay-color: 255, 255, 255;
+}
+
+body {
+    @apply bg-neutral-950;
+}
+
+.radial-gradient {
+    background: radial-gradient(
+            circle at 50% 0%,
+            rgba(var(--radial-gradient-background), 0.05) 0%,
+            transparent 60%
+        )
+        rgba(var(--solid-color-background), 1);
+}
+
+.linear-mask {
+    mask-image: linear-gradient(
+        -75deg,
+        white calc(var(--x) + 20%),
+        transparent calc(var(--x) + 30%),
+        white calc(var(--x) + 100%)
+    );
+    -webkit-mask-image: linear-gradient(
+        -75deg,
+        white calc(var(--x) + 20%),
+        transparent calc(var(--x) + 30%),
+        white calc(var(--x) + 100%)
+    );
+}
+
+.linear-overlay {
+    background-image: linear-gradient(
+        -75deg,
+        rgba(var(--overlay-color), 0.1) calc(var(--x) + 20%),
+        rgba(var(--overlay-color), 0.5) calc(var(--x) + 25%),
+        rgba(var(--overlay-color), 0.1) calc(var(--x) + 100%)
+    );
+    mask:
+        linear-gradient(black, black) content-box,
+        linear-gradient(black, black);
+    -webkit-mask:
+        linear-gradient(black, black) content-box,
+        linear-gradient(black, black);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+}
